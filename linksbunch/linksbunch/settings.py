@@ -1,7 +1,10 @@
-# Django settings for linksbunch project.
+"""Django settings for linksbunch project."""
+import os
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -16,7 +19,7 @@ DATABASES = {
         # The following settings are not used with sqlite3:
         'USER': 'linksbunch',
         'PASSWORD': 'linksbunch',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': '',                      # Empty for localhost
         'PORT': '',                      # Set to empty string for default.
     }
 }
@@ -107,11 +110,8 @@ ROOT_URLCONF = 'linksbunch.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'linksbunch.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+
+TEMPLATE_DIRS = (os.path.join(BASE_PATH, 'templates'))
 
 INSTALLED_APPS = (
     'django.contrib.auth',
